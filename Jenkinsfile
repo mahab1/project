@@ -5,7 +5,7 @@ pipeline {
             steps {
                 dir ("file_path") {
                     // find all files with complete path
-                    parallel (
+                    parallel {
                         // execute parallel tasks for each file found.
                         // this must be dynamic
                         }
@@ -14,4 +14,3 @@ pipeline {
             }
         }
     }
-}
