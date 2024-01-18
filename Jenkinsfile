@@ -1,16 +1,42 @@
 pipeline {
     agent any
+
     stages {
-        stage("test") {
+        stage('Checkout') {
             steps {
-                dir ("file_path") {
-                    // find all files with complete path
-                    parallel (
-                        // execute parallel tasks for each file found.
-                        // this must be dynamic
-                        )
-                    }
-                }
+                // Checkout your source code from version control (e.g., Git)
+                git 'https://github.com/mahab1/subhanijenkinstest.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Build your project (e.g., Maven)
+                sh 'echo test'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Run tests (customize based on your project)
+                sh 'echo subhani'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Deployment steps (customize based on your needs)
+                echo 'Deploying...'
             }
         }
     }
+
+    post {
+        success {
+            echo 'Pipeline succeeded! This is where you might trigger further actions.'
+        }
+        failure {
+            echo 'Pipeline failed! Handle failure scenarios here.'
+        }
+    }
+}
