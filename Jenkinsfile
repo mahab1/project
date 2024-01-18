@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout your source code from version control (e.g., Git)
-                git 'https://github.com/mahab1/subhanijenkinstest.git'
+                git 'https://github.com/mahab1/project.git'
             }
         }
 
